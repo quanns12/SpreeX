@@ -1,15 +1,4 @@
-export const CATEGORIES = [
-  { id: 'all', label: 'Tất cả' },
-  { id: 'sneakers', label: 'Sneakers' },
-  { id: 'heels', label: 'Cao gót' },
-  { id: 'sandals', label: 'Dép & Sandal' },
-  { id: 'boots', label: 'Boots' },
-  { id: 'fashion', label: 'Thời trang' },
-];
-
-export const BRANDS = ['Nike', 'Adidas', 'Puma', 'Converse', 'Zara', 'H&M'];
-
-export const products = [
+module.exports = [
   {
     id: 1,
     name: 'Nike Air Max 90',
@@ -191,26 +180,3 @@ export const products = [
     tags: ['cao gót', 'h&m', 'mũi nhọn', 'dạ tiệc'],
   },
 ];
-
-export const formatPrice = (price) =>
-  new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
-
-export const searchProducts = (productsList, query, category = 'all') => {
-  const normalized = query.trim().toLowerCase();
-  return productsList.filter((product) => {
-    const matchCategory = category === 'all' || product.category === category;
-    if (!normalized) return matchCategory;
-    const searchable = [
-      product.name,
-      product.brand,
-      product.description,
-      ...product.tags,
-    ]
-      .join(' ')
-      .toLowerCase();
-    return matchCategory && searchable.includes(normalized);
-  });
-};
-
-export const getProductById = (productsList, id) =>
-  productsList.find((p) => p.id === Number(id));
