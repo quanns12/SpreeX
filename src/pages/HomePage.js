@@ -1,23 +1,20 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-import ProductSearch from '../components/product/ProductSearch';
 import ProductCard from '../components/product/ProductCard';
 import { useProducts } from '../context/ProductContext';
-import { searchProducts } from '../data/products';
 import Spline from '@splinetool/react-spline';
 import './HomePage.css';
 
 const HomePage = () => {
   const { products, loading, error } = useProducts();
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('all');
   const [splineLoaded, setSplineLoaded] = useState(false);
   const [splineError, setSplineError] = useState(false);
 
-  const filteredProducts = useMemo(
-    () => searchProducts(products, query, category),
-    [products, query, category]
+  const featuredProducts = useMemo(
+    () => products.slice(0, 4),
+    [products]
   );
 
   const scrollToProducts = () => {
@@ -122,49 +119,39 @@ const HomePage = () => {
       </section>
 
       <section className="products-section" id="products-explore">
-        {error && <p className="api-warning">{error}</p>}
-
-        <ProductSearch
-          query={query}
-          onQueryChange={setQuery}
-          category={category}
-          onCategoryChange={setCategory}
-        />
-
-        <div className="results-meta">
-          <p className="results-count">
-            Tìm thấy <strong>{filteredProducts.length}</strong> sản phẩm
-            {query && ` cho "${query}"`}
-          </p>
+        <div className="featured-header">
+          <h2>Sản phẩm nổi bật</h2>
+          <p>Những thiết kế sneakers hot nhất được cộng đồng săn đón.</p>
         </div>
+
+        {error && <p className="api-warning">{error}</p>}
 
         {loading ? (
           <div className="loading-products">
             <div className="spinner" />
             <p>Đang tải sản phẩm...</p>
           </div>
-        ) : filteredProducts.length > 0 ? (
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="products-grid"
-          >
-            {filteredProducts.map((product) => (
-              <motion.div key={product.id} variants={itemVariants}>
-                <ProductCard product={product} />
-              </motion.div>
-            ))}
-          </motion.div>
         ) : (
-          <div className="empty-results">
-            <div className="empty-icon-wrap">🔍</div>
-            <h3>Không tìm thấy sản phẩm</h3>
-            <p>Vui lòng thử lại với từ khóa khác hoặc xóa bộ lọc danh mục.</p>
-            <button type="button" className="btn-reset-filters" onClick={() => { setQuery(''); setCategory('all'); }}>
-              Xóa bộ lọc
-            </button>
-          </div>
+          <>
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="products-grid"
+            >
+              {featuredProducts.map((product) => (
+                <motion.div key={product.id} variants={itemVariants}>
+                  <ProductCard product={product} />
+                </motion.div>
+              ))}
+            </motion.div>
+            
+            <div className="view-all-container">
+              <Link to="/products" className="btn-view-all-products">
+                Xem tất cả sản phẩm <FiArrowRight />
+              </Link>
+            </div>
+          </>
         )}
       </section>
     </div>
