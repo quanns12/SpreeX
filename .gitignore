@@ -1,0 +1,8 @@
+node_modules/
+build/
+.env
+.agents/
+.codex/
+.impeccable/
+build/
+*.log
