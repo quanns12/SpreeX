@@ -1,16 +1,13 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiStar } from 'react-icons/fi';
 import { useProducts } from '../context/ProductContext';
 import { formatPrice } from '../data/products';
-import Spline from '@splinetool/react-spline';
 import './HomePage.css';
 
 const HomePage = () => {
   const { products, loading, error } = useProducts();
-  const [splineLoaded, setSplineLoaded] = useState(false);
-  const [splineError, setSplineError] = useState(false);
   const navigate = useNavigate();
 
   // Pick top 4 products for the bento showcase
@@ -67,38 +64,24 @@ const HomePage = () => {
             </motion.div>
           </div>
 
-          <div className="hero-spline-container">
-            {!splineLoaded && !splineError && (
-              <div className="spline-loader">
-                <div className="spinner"></div>
-                <p>Đang tải mô hình 3D...</p>
-              </div>
-            )}
-            
-            {splineError ? (
-              <div className="spline-fallback">
-                <div className="fallback-glow"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" 
-                  alt="3D Sneaker Showcase" 
-                  className="fallback-image"
-                />
-                <div className="fallback-badge">Mô hình sản phẩm 3D</div>
-              </div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: splineLoaded ? 1 : 0, scale: splineLoaded ? 1 : 0.95 }}
-                transition={{ duration: 0.8 }}
-                className="spline-wrapper"
+          <div className="hero-media-container">
+            <div className="hero-media-wrapper">
+              <div className="hero-media-glow"></div>
+              <video 
+                className="hero-media-video"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                poster="/images/sports_fashion_hero.png"
               >
-                <Spline 
-                  scene="https://prod.spline.design/yqZYQAuhDrtDuWvl/scene.splinecode" 
-                  onLoad={() => setSplineLoaded(true)}
-                  onError={() => setSplineError(true)}
-                />
-              </motion.div>
-            )}
+                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054273b94f906f8153f211352ec7c05&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-shoes-of-a-runner-in-neon-light-40439-large.mp4" type="video/mp4" />
+              </video>
+              <div className="hero-media-overlay">
+                <span className="media-tag">SPREEX SPORT / 2026</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
