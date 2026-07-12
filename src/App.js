@@ -30,6 +30,7 @@ import ManagerDashboard from './pages/dashboard/ManagerDashboard';
 import AdminRoleDashboard from './pages/dashboard/AdminRoleDashboard';
 import DashboardLayout from './pages/dashboard/DashboardLayout';
 import InfoPage from './pages/InfoPage';
+import ProductsPage from './pages/ProductsPage';
 import './App.css';
 
 const DashboardRedirect = () => {
@@ -61,6 +62,7 @@ const AppLayout = () => {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/products/:id" element={<ProductDetailPage />} />
           <Route path="/info/:pageId" element={<InfoPage />} />

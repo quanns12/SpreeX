@@ -67,7 +67,7 @@ const Header = () => {
         </Link>
 
         <nav className="nav-desktop">
-          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>
+          <Link to="/products" className={`nav-link ${isActive('/products') ? 'active' : ''}`}>
             Sản phẩm
           </Link>
           {isAuthenticated && (
@@ -142,8 +142,8 @@ const Header = () => {
       <div className={`nav-mobile-overlay ${mobileMenuOpen ? 'open' : ''}`}>
         <nav className="nav-mobile">
           <Link
-            to="/"
-            className={`nav-mobile-link ${isActive('/') ? 'active' : ''}`}
+            to="/products"
+            className={`nav-mobile-link ${isActive('/products') ? 'active' : ''}`}
             onClick={() => setMobileMenuOpen(false)}
           >
             Sản phẩm
