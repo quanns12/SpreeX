@@ -40,7 +40,7 @@
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1.05fr;
   align-items: center;
   gap: 40px;
   max-width: 1200px;
@@ -140,7 +140,7 @@
 .hero-media-container {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 520px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,14 +149,14 @@
 
 .hero-media-wrapper {
   position: relative;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   background: #09090b;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  transform: rotateY(-10deg) rotateX(5deg);
+  transform: rotateY(-8deg) rotateX(4deg);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
@@ -181,7 +181,7 @@
   pointer-events: none;
 }
 
-.hero-media-video {
+.hero-media-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -238,7 +238,7 @@
 .bento-grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 240px;
+  grid-auto-rows: 270px;
   gap: 24px;
   margin-bottom: 48px;
 }
@@ -398,18 +398,18 @@
 /* 2. Tall Vertical Card (Spans 1 column, 2 rows) */
 .bento-card-tall {
   grid-row: span 2;
-  background: #f1f5f9; /* Cold luxury background */
-  border-color: #cbd5e1;
-  padding: 32px 24px;
+  background: #09090b; /* Dark black to match the shoe image background! */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #0f172a;
+  color: white;
 }
 
 .bento-card-tall:hover {
-  border-color: #ff4b2b;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 75, 43, 0.4);
+  box-shadow: 0 12px 30px rgba(255, 75, 43, 0.1);
 }
 
 .bento-tall-top {
@@ -427,29 +427,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 32px 0;
+  margin: 16px 0;
   flex-grow: 1;
+  height: 220px;
 }
 
 .bento-tall-img {
+  max-height: 200px;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
   z-index: 2;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bento-card-tall:hover .bento-tall-img {
-  transform: translateY(-12px) rotate(8deg) scale(1.08);
+  transform: translateY(-8px) rotate(5deg) scale(1.06);
 }
 
 .bento-tall-circle-glow {
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  background: rgba(30, 41, 59, 0.06);
-  border: 1px dashed rgba(30, 41, 59, 0.15);
+  background: rgba(255, 75, 43, 0.02);
+  border: 1px dashed rgba(255, 75, 43, 0.15);
   z-index: 1;
   animation: spin 20s linear infinite;
 }
@@ -458,10 +460,17 @@
   to { transform: rotate(360deg); }
 }
 
+.bento-tall-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .bento-tall-bottom h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  color: white;
+  margin: 0;
   letter-spacing: -0.3px;
 }
 
@@ -480,56 +489,64 @@
   border-radius: 4px;
 }
 
+.bento-badge-sold-pill.dark-sold {
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.08);
+}
+
 /* 3. Light Square Card */
 .bento-card-square-light {
-  background: var(--bg-primary);
+  background: #f8fafc; /* Sleek light-slate matching heels background */
+  border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
 }
 
 .bento-card-square-light:hover {
   border-color: #ff4b2b;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
 
 .bento-square-img-wrap {
   flex-grow: 1;
-  background: var(--bg-secondary);
+  background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #e2e8f0;
   position: relative;
 }
 
 .bento-square-img {
-  max-height: 110px;
+  max-height: 120px;
+  max-width: 90%;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .bento-card-square-light:hover .bento-square-img,
 .bento-card-square-dark:hover .bento-square-img {
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.08) rotate(-3deg);
 }
 
 .bento-square-info {
-  padding: 16px 20px;
+  padding: 14px 18px;
 }
 
 .bento-square-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .bento-mini-brand {
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #64748b;
 }
 
 .bento-mini-price {
@@ -541,7 +558,8 @@
 .bento-square-info h4 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #0f172a;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -549,8 +567,8 @@
 
 /* 4. Dark Square Card */
 .bento-card-square-dark {
-  background: #1e293b;
-  border-color: rgba(255, 255, 255, 0.05);
+  background: #09090b; /* Pitch black matching converse dark style */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
 }
@@ -561,12 +579,12 @@
 }
 
 .bento-square-img-wrap.dark-wrap {
-  background: #0f172a;
+  background: #18181b;
   border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
 .bento-square-info.dark-info {
-  padding: 16px 20px;
+  padding: 14px 18px;
 }
 
 .bento-mini-brand.text-light {
@@ -574,13 +592,14 @@
 }
 
 .bento-mini-price.text-coral {
-  color: #ff6b35;
+  color: #ff4b2b;
 }
 
 .bento-square-info.dark-info h4 {
-  color: white;
   font-size: 0.95rem;
   font-weight: 700;
+  color: white;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

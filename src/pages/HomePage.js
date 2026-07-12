@@ -66,18 +66,11 @@ const HomePage = () => {
 
           <div className="hero-media-container">
             <div className="hero-media-wrapper">
-              <div className="hero-media-glow"></div>
-              <video 
-                className="hero-media-video"
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                poster="/images/sports_fashion_hero.png"
-              >
-                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054273b94f906f8153f211352ec7c05&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-shoes-of-a-runner-in-neon-light-40439-large.mp4" type="video/mp4" />
-              </video>
+              <img 
+                src="/images/sports_fashion_hero.png" 
+                alt="Spreex Premium Sports Sneaker Campaign" 
+                className="hero-media-image"
+              />
               <div className="hero-media-overlay">
                 <span className="media-tag">SPREEX SPORT / 2026</span>
               </div>
@@ -141,8 +134,8 @@ const HomePage = () => {
                 onClick={() => navigate(`/products/${bentoProducts[1].id}`)}
               >
                 <div className="bento-tall-top">
-                  <span className="bento-badge-brand font-dark">PREMIUM RUNNING</span>
-                  <span className="bento-rating text-dark">
+                  <span className="bento-badge-brand">PREMIUM RUNNING</span>
+                  <span className="bento-rating">
                     <FiStar /> {bentoProducts[1].rating}
                   </span>
                 </div>
@@ -157,8 +150,8 @@ const HomePage = () => {
                 <div className="bento-tall-bottom">
                   <h3>{bentoProducts[1].name}</h3>
                   <div className="bento-price-row">
-                    <span className="bento-price text-dark">{formatPrice(bentoProducts[1].price)}</span>
-                    <span className="bento-badge-sold-pill">Đã bán {bentoProducts[1].sold}</span>
+                    <span className="bento-price">{formatPrice(bentoProducts[1].price)}</span>
+                    <span className="bento-badge-sold-pill dark-sold">Đã bán {bentoProducts[1].sold}</span>
                   </div>
                 </div>
               </div>
