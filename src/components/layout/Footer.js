@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiFacebook, FiInstagram, FiYoutube, FiMapPin, FiMail, FiPhone } from 'react-icons/fi';
 import './Footer.css';
 
@@ -32,20 +33,20 @@ const Footer = () => (
         <div className="footer-col">
           <h4>Hỗ trợ khách hàng</h4>
           <ul className="footer-list">
-            <li><a href="#faq">Câu hỏi thường gặp</a></li>
-            <li><a href="#shipping">Phương thức vận chuyển</a></li>
-            <li><a href="#returns">Chính sách đổi trả 30 ngày</a></li>
-            <li><a href="#warranty">Chính sách bảo hành</a></li>
+            <li><Link to="/info/faq">Câu hỏi thường gặp</Link></li>
+            <li><Link to="/info/shipping">Phương thức vận chuyển</Link></li>
+            <li><Link to="/info/returns">Chính sách đổi trả 30 ngày</Link></li>
+            <li><Link to="/info/warranty">Chính sách bảo hành</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Về chúng tôi</h4>
           <ul className="footer-list">
-            <li><a href="#about">Câu chuyện thương hiệu</a></li>
-            <li><a href="#careers">Cơ hội nghề nghiệp</a></li>
-            <li><a href="#stores">Hệ thống cửa hàng</a></li>
-            <li><a href="#news">Tin tức khuyến mãi</a></li>
+            <li><Link to="/info/about">Câu chuyện thương hiệu</Link></li>
+            <li><Link to="/info/careers">Cơ hội nghề nghiệp</Link></li>
+            <li><Link to="/info/stores">Hệ thống cửa hàng</Link></li>
+            <li><Link to="/info/news">Tin tức khuyến mãi</Link></li>
           </ul>
         </div>
 
