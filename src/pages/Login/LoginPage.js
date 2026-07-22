@@ -13,7 +13,7 @@ import {
   canAccessRouteForRole,
   getDashboardPathForRole,
   useAuth,
-} from '../context/AuthContext';
+} from '../../context/AuthContext';
 import './LoginPage.css';
 
 const LoginPage = () => {

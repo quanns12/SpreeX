@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiStar } from 'react-icons/fi';
-import { useProducts } from '../context/ProductContext';
-import { formatPrice } from '../data/products';
+import { useProducts } from '../../context/ProductContext';
+import { formatPrice } from '../../data/products';
 import './HomePage.css';
 
 const HomePage = () => {

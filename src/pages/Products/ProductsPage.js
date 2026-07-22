@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import ProductCard from '../components/product/ProductCard';
-import ProductSearch from '../components/product/ProductSearch';
-import { useProducts } from '../context/ProductContext';
-import { searchProducts } from '../data/products';
+import ProductCard from '../../components/product/ProductCard';
+import ProductSearch from '../../components/product/ProductSearch';
+import { useProducts } from '../../context/ProductContext';
+import { searchProducts } from '../../data/products';
 import './ProductsPage.css';
 
 const ProductsPage = () => {

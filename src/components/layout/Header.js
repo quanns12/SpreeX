@@ -59,7 +59,11 @@ const Header = () => {
       <div className="header-container">
         <Link to="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
           <div className="logo-mockup-wrap">
-            <img src="/logo-transparent.png" alt="SpreeX Logo" className="header-brand-logo" />
+            <img 
+              src={theme === 'light' ? '/logo-transparent-light.png' : '/logo-transparent.png'} 
+              alt="SpreeX Logo" 
+              className="header-brand-logo" 
+            />
           </div>
           <span className="logo-text">
             Spree<span className="logo-accent">X</span>

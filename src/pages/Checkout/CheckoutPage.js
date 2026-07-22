@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiUser, FiPhone, FiMapPin, FiFileText, FiCreditCard, FiArrowRight } from 'react-icons/fi';
-import CartItem from '../components/cart/CartItem';
-import { useAuth } from '../context/AuthContext';
-import { useCart } from '../context/CartContext';
-import { useOrders } from '../context/OrderContext';
-import { api } from '../services/api';
-import { formatPrice } from '../data/products';
+import CartItem from '../../components/cart/CartItem';
+import { useAuth } from '../../context/AuthContext';
+import { useCart } from '../../context/CartContext';
+import { useOrders } from '../../context/OrderContext';
+import { api } from '../../services/api';
+import { formatPrice } from '../../data/products';
 import './CheckoutPage.css';
 
 const PAYMENT_LABELS = {

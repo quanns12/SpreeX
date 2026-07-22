@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FiStar, FiMinus, FiPlus, FiShoppingCart, FiCheckCircle, FiChevronLeft } from 'react-icons/fi';
-import { useProducts } from '../context/ProductContext';
-import { formatPrice } from '../data/products';
-import { useAuth } from '../context/AuthContext';
-import { useCart } from '../context/CartContext';
+import { useProducts } from '../../context/ProductContext';
+import { formatPrice } from '../../data/products';
+import { useAuth } from '../../context/AuthContext';
+import { useCart } from '../../context/CartContext';
 import './ProductDetailPage.css';
 
 const ProductDetailPage = () => {
